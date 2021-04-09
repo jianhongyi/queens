@@ -1,0 +1,72 @@
+@import '../../mixins/app.less';
+.optionMixin(@mb: 16px, @mr: 8px, @color: @white, @br: 4px, @bg: @commonColor) {
+    padding: 4px 14px;
+    background-color: @bg;
+    border-radius: @br;
+    margin-right: @mr;
+    margin-bottom: @mb;
+    color: @color;
+    font-size: 16px;
+    font-weight: 600;
+    word-break: break-word;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.header {
+    .item-wrapper {
+      position: relative;
+      .underline {
+        height: 1px;
+        width: 100%;
+        position: absolute;
+        left: 0;
+        background-color: @commonLightColor;
+      }
+      .item-mark {
+        position: absolute;
+        right: 0;
+        bottom: 16px;
+        color: @commonColor;
+        font-weight: 600;
+        font-size: 14px;
+      }
+      .item-inner {
+        .flex-wrap(flex-start);
+        .item {
+          .optionMixin(16px);
+          &.isTure,&.isFalse {
+            background-color: transparent;
+            padding: 8px 0 0;
+            margin-right: 5px;
+          }
+          &.isTure {
+            color: @commonTrue;
+          }
+          &.isFalse {
+            color: @commonFalse;
+          }
+          &.last-item {
+              margin-right: 0;
+          }
+        }
+      }
+    }
+}
+.section {
+    margin-top: 26px;
+    .option-wrapper {
+        .option-inner {
+          .flex-wrap(flex-start);
+        }
+        .option {
+          .optionMixin();
+          &.isChecked {
+            background-color: @commonBoxBg;
+            color: @commonDarkFontColor;
+          }
+        }
+        .last-option {
+            margin-right: 0;
+        }
+    }
+}

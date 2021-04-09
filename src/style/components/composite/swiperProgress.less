@@ -1,0 +1,80 @@
+.popup{
+  padding-left: 0px;
+  padding-right: 0px;
+  /deep/.question-switcher-wrapper{
+    position: absolute;
+    top: 0px;
+    left: 16px;
+    right: 16px;
+    z-index: 2;
+    height: 36px;
+  }
+  /deep/ .question-switcher-wrapper .scroll-wrapper .item-wrap li.item:not(:last-of-type) {
+      margin-right: 14px;
+  }
+  .van-swipe{
+    height: 100%;
+    overflow-y: hidden;
+  }
+  /deep/.slide-options{
+    .yn-options-wrapper .option-container .option{
+      margin-top: 6px;
+    }
+    .queens-stem{
+      padding-top: 0px !important;
+      .stem-content{
+        padding-bottom: 12px !important;
+      }
+    }
+    height: calc(100% - 10px);
+    box-sizing: border-box;
+    padding: 10px 12px 6px;
+    margin: 0px 16px 16px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background: #FFFFFF;
+    box-shadow: 0px 5px 8px 0px rgba(0, 0, 0, 0.02);
+    border-radius: 14px;
+    .yn-options-wrapper .option-container{
+      margin-bottom: 36px !important;
+    }
+    .ques-select-wrapper{
+      padding-bottom: 2px;
+      .main-area{
+        min-height: 0px;
+        box-shadow: none;
+        .scrollCard{
+          padding: 0px 3px;
+          .pad{
+            height: 0px;
+          }
+        }
+      }
+    }
+    .progress-text{
+      width: max-content;
+      height: 22px;
+      line-height: 22px;
+      margin-bottom: 10px;
+      padding: 0px 10px;
+      background: rgba(255, 202, 11, 0.1);
+      border-radius: 11px;
+      strong {
+        color: #F7B500;
+        font-size: 16px;
+      }
+      span {
+        color: #F5D5A0;
+        font-size: 12px;
+      }
+    }
+  }
+}
+
+.material-questions{
+  /deep/.slide-options{
+    position: relative;
+    height: calc(100% - 54px);
+    top: 38px;
+  }
+}

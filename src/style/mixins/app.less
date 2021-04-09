@@ -1,0 +1,62 @@
+@import '../var.less';
+.center-flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.center-position(@top: 50%, @left: 50%, @transT: -50%, @transL: -50%) {
+    position: absolute;
+    top: @top;
+    left: @left;
+    transform: translate(@transT, @transL);
+}
+
+.flex-wrap(@position: space-between) {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: @position;
+}
+.img-option(@flexBase: 48%, @height: auto, @boxSizing: border-box, @border-radius:8px, @margin-bottom: 14px, @borderWidth: 2px, @borderColor: transparent) {
+    position: relative;
+    flex: 0 0 @flexBase;
+    text-align: center;
+    box-sizing: border-box;
+    height: @height;
+    border: @borderWidth solid @borderColor;
+    border-radius: @border-radius;
+    margin-bottom: @margin-bottom;
+    overflow: hidden;
+}
+.img-container(@width:100%, @min-width:112px, @border-radius:8px) {
+    display: flex;
+    width: @width;
+    height: auto;
+    min-height: @min-width;
+    border-radius: @border-radius;
+}
+.img-target(@width:100%, @height: auto, @border-radius:8px, @fontSize: 0) {
+    width: @width;
+    height: @height;
+    border-radius: @border-radius;
+    font-size:@fontSize;
+}
+.img-icon(@width:100%, @height: 100%, @zIndex:-2, @border-radius:8px, @iconWidth: 20px) {
+    width: @width;
+    height: @height;
+    border-radius: @border-radius;
+    font-size:0;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    left: 0;
+    top: 0;
+    z-index: @zIndex;
+    &-true {
+        height: @iconWidth;
+    }
+    &-false {
+        width: @iconWidth;
+    }
+}

@@ -1,0 +1,243 @@
+@import '../style/var';
+
+.queens-button {
+  position: relative;
+  display: inline-block;
+  box-sizing: border-box;
+  height: @button-default-height;
+  margin: 0;
+  padding: 0;
+  font-size: @button-default-font-size;
+  line-height: @button-default-line-height;
+  text-align: center;
+  border-radius: @button-border-radius;
+  cursor: pointer;
+  transition: opacity @animation-duration-fast;
+  appearance: none;
+
+  &::before {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    background-color: @black;
+    border: inherit;
+    border-color: @black;
+    border-radius: inherit;
+    /* inherit parent's border radius */
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    content: ' ';
+  }
+
+  &:active::before {
+    opacity: 0.1;
+  }
+
+  &:not(:last-child) {
+    margin-right: 16px;
+  }
+
+  &--loading,
+  &--disabled {
+    &::before {
+      display: none;
+    }
+  }
+
+  &--default {
+    color: @button-default-color;
+    background-color: @button-default-background-color;
+    border: @button-border-width solid @button-default-border-color;
+  }
+
+  &--primary {
+    color: @button-primary-color;
+    background-color: @button-primary-background-color;
+    border: @button-border-width solid @button-primary-border-color;
+  }
+
+  &--info {
+    color: @button-info-color;
+    background-color: @button-info-background-color;
+    border: @button-border-width solid @button-info-border-color;
+  }
+
+  &--danger {
+    color: @button-danger-color;
+    background-color: @button-danger-background-color;
+    border: @button-border-width solid @button-danger-border-color;
+  }
+
+  &--warning {
+    color: @button-warning-color;
+    background-color: @button-warning-background-color;
+    border: @button-border-width solid @button-warning-border-color;
+  }
+
+  &--plain {
+    background-color: @button-plain-background-color;
+
+    &.queens-button--primary {
+      color: @button-primary-background-color;
+    }
+
+    &.queens-button--info {
+      color: @button-info-background-color;
+    }
+
+    &.queens-button--danger {
+      color: @button-danger-background-color;
+    }
+
+    &.queens-button--warning {
+      color: @button-warning-background-color;
+    }
+  }
+
+  &--large {
+    width: 100%;
+    height: @button-large-height;
+    font-weight: @font-weight-bold;
+  }
+
+  &--normal {
+    padding: 0 15px;
+    font-size: @button-normal-font-size;
+  }
+
+  &--small {
+    height: @button-small-height;
+    padding: 0 @padding-xs;
+    font-size: @button-small-font-size;
+  }
+
+  &__loading {
+    color: inherit;
+    font-size: inherit;
+  }
+
+  &--mini {
+    height: @button-mini-height;
+    padding: 0 @padding-base;
+    font-size: @button-mini-font-size;
+
+    &+.queens-button--mini {
+      margin-left: @padding-base;
+    }
+  }
+
+  &--block {
+    display: block;
+    width: 100%;
+  }
+
+  &--disabled {
+    cursor: not-allowed;
+    opacity: @button-disabled-opacity;
+  }
+
+  &--loading {
+    cursor: default;
+  }
+
+  &--round {
+    border-radius: @button-round-border-radius;
+  }
+
+  &--square {
+    border-radius: 0;
+  }
+
+  // align-items are ignored when flex container is a button in legacy safari
+  // see: https://bugs.webkit.org/show_bug.cgi?id=169700
+  &__content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+  }
+
+  &__icon {
+    min-width: 1em;
+    font-size: 1.2em;
+    line-height: inherit;
+  }
+
+  &__icon+&__text,
+  &__loading+&__text {
+    margin-left: 5px;
+  }
+
+  &--hairline {
+    border-width: 0;
+
+    &::after {
+      border-color: inherit;
+      border-radius: @button-border-radius * 2;
+    }
+
+    &.queens-button--round::after {
+      border-radius: @button-round-border-radius;
+    }
+
+    &.queens-button--square::after {
+      border-radius: 0;
+    }
+  }
+
+  .queens-loading {
+    position: relative;
+    vertical-align: middle;
+    margin-right: 4px;
+    .queens-loading__spinner {
+      position: relative;
+      display: inline-block;
+      width: 30px;
+      max-width: 100%;
+      height: 30px;
+      max-height: 100%;
+      vertical-align: middle;
+      animation: queens-rotate 0.8s linear infinite;
+    }
+    .queens-loading__circular{
+      display: block;
+      width: 100%;
+      height: 100%;
+      circle {
+        animation: queens-circular 1.5s ease-in-out infinite;
+        stroke: currentColor;
+        stroke-width: 3;
+        stroke-linecap: round;
+      }
+    }
+  }
+}
+
+@keyframes queens-rotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes queens-circular {
+  0% {
+    stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0;
+  }
+
+  50% {
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -40;
+  }
+
+  100% {
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -120;
+  }
+}

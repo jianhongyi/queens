@@ -1,0 +1,22 @@
+.queens-composite-wrapper {
+    .main-area {
+        background-color: #fff;
+        border-radius: 14px;
+        box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.05);
+        .scrollCard{ // iphone6 scroll和radius一起使用时，swiper左右滑动，第二页图片渲染不出来，页面的dom已经真实存在。
+            padding: 0 14px;
+            height: 100%;
+            overflow: scroll;
+            box-sizing: border-box;
+            .scroll-card-inner{
+                min-height: 85%;
+            }
+        }
+        .scrollCard::-webkit-scrollbar {
+            display: none !important;
+        }
+    }
+}
+/deep/ .queens-stem {
+    padding-top: 12px;
+}

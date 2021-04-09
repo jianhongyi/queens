@@ -1,0 +1,94 @@
+{
+  "name": "queens-unipus",
+  "version": "2.0.0",
+  "description": "",
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "style": "lib/index.css",
+  "files": [
+    "lib",
+    "es"
+  ],
+  "publishConfig": {
+    "registry": "http://maven.nse.cn/repository/npm-hosted/"
+  },
+  "scripts": {
+    "dev": "vant-cli dev",
+    "test": "vant-cli test",
+    "lint": "eslint --ext .js,.vue src",
+    "build": "vant-cli build",
+    "release": "vant-cli release",
+    "test:coverage": "open test/coverage/index.html",
+    "build-site": "vant-cli build-site && gh-pages -d site",
+    "precommit": "lint-staged",
+    "deploy": "npm run build && npm publish"
+  },
+  "author": "",
+  "license": "MIT",
+  "peerDependencies": {
+    "vue": "^2.6.11",
+    "vue-template-compiler": "^2.6.11",
+    "@vant/touch-emulator": "^1.2.0"
+  },
+  "devDependencies": {
+    "@vant/cli": "^2.0.0",
+    "babel-eslint": "^10.1.0",
+    "babel-plugin-import": "^1.13.1",
+    "cz-conventional-changelog": "^3.3.0",
+    "file-loader": "^6.1.1",
+    "ghooks": "^2.0.4",
+    "husky": "^4.3.0",
+    "lint-staged": "^10.4.2",
+    "postcss-pxtorem": "^5.1.1",
+    "url-loader": "^4.1.1",
+    "validate-commit-msg": "^2.14.0",
+    "vconsole": "^3.3.4",
+    "vue": "^2.6.11",
+    "vue-template-compiler": "^2.6.11"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "validate-commit-msg"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{js,vue}": [
+      "eslint --fix",
+      "git add"
+    ]
+  },
+  "validate-commit-msg": {
+    "types": [
+      "feat",
+      "fix",
+      "docs",
+      "test",
+      "dev",
+      "refactor",
+      "opti"
+    ],
+    "warnOnFail": false,
+    "maxSubjectLength": 100,
+    "subjectPattern": ".+",
+    "subjectPatternErrorMsg": "请输入message信息!",
+    "helpMessage": "Commit message 格式错误， http://www.ruanyifeng.com/blog/2016/01/commit_message_change_log.html"
+  },
+  "engines": {
+    "node": ">=8.11.1 <=12.19.3",
+    "npm": ">= 3.0.0"
+  },
+  "browserslist": [
+    "Android >= 4.0",
+    "iOS >= 8"
+  ],
+  "dependencies": {
+    "amfe-flexible": "^2.2.1",
+    "axios": "^0.20.0",
+    "eslint-plugin-vue": "^7.1.0",
+    "fastclick": "^1.0.6",
+    "lodash": "^4.17.20",
+    "parse5": "^4.0.0",
+    "vant": "^2.10.10"
+  }
+}

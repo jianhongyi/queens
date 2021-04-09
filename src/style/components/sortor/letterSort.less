@@ -1,0 +1,64 @@
+@import '../../mixins/app.less';
+.letterWrap(@width: 38px, @height: 38px, @borderC: @commonDarkFontColor, @bg: transparent) {
+    box-sizing: border-box;
+    width: @width;
+    height: @height;
+    .center-flex();
+    border-radius: 8px;
+    border: 2px solid @borderC;
+    margin-left: 2px;
+    margin-right: 2px;
+    background-color: @bg;
+    margin-bottom: 10px;
+}
+.letter-sort-wrapper {
+    .header {
+        .item {
+            .flex-wrap(center);
+            align-items: flex-end;
+            font-size: 30px;
+            font-weight: 600;
+            .item-canCheck {
+                .letterWrap();
+                &.isChecked {
+                    border-color: @commonColor;
+                    color: @commonColor;
+                }
+                &.isTure {
+                    border-color: @commonTrue;
+                    color: @commonTrue;
+                }
+                &.isFalse {
+                    border-color: @commonFalse;
+                    color: @commonFalse;
+                }
+            }
+            .item-noCheck {
+                display: flex;
+                margin-bottom: 10px;
+            }
+        }
+    }
+    /deep/ .letter-box {
+        .letterWrap()
+    }
+    .section {
+        margin-top: 16px;
+        .option-wrapper {
+            .option-inner {
+              .flex-wrap(center);
+            }
+            .option {
+              .letterWrap(38px, 38px, transparent, @commonColor);
+              .center-flex();
+              font-size: 28px;
+              color: @white;
+              font-weight: 600;
+              &.isChecked {
+                background-color: @commonBoxBg;
+                color: @commonDarkFontColor;
+              }
+            }
+        }
+    }
+}

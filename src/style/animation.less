@@ -1,0 +1,139 @@
+@import './var';
+
+@keyframes queens-slide-up-enter {
+  from {
+    transform: translate3d(0, 100%, 0);
+  }
+}
+
+@keyframes queens-slide-up-leave {
+  to {
+    transform: translate3d(0, 100%, 0);
+  }
+}
+
+@keyframes queens-slide-down-enter {
+  from {
+    transform: translate3d(0, -100%, 0);
+  }
+}
+
+@keyframes queens-slide-down-leave {
+  to {
+    transform: translate3d(0, -100%, 0);
+  }
+}
+
+@keyframes queens-slide-left-enter {
+  from {
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+
+@keyframes queens-slide-left-leave {
+  to {
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+
+@keyframes queens-slide-right-enter {
+  from {
+    transform: translate3d(100%, 0, 0);
+  }
+}
+
+@keyframes queens-slide-right-leave {
+  to {
+    transform: translate3d(100%, 0, 0);
+  }
+}
+
+@keyframes queens-fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes queens-fade-out {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes queens-rotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.queens-fade {
+  &-enter-active {
+    animation: @animation-duration-base queens-fade-in both
+      @animation-timing-function-enter;
+  }
+
+  &-leave-active {
+    animation: @animation-duration-base queens-fade-out both
+      @animation-timing-function-leave;
+  }
+}
+
+.queens-slide-up {
+  &-enter-active {
+    animation: queens-slide-up-enter @animation-duration-base both
+      @animation-timing-function-enter;
+  }
+
+  &-leave-active {
+    animation: queens-slide-up-leave @animation-duration-base both
+      @animation-timing-function-leave;
+  }
+}
+
+.queens-slide-down {
+  &-enter-active {
+    animation: queens-slide-down-enter @animation-duration-base both
+      @animation-timing-function-enter;
+  }
+
+  &-leave-active {
+    animation: queens-slide-down-leave @animation-duration-base both
+      @animation-timing-function-leave;
+  }
+}
+
+.queens-slide-left {
+  &-enter-active {
+    animation: queens-slide-left-enter @animation-duration-base both
+      @animation-timing-function-enter;
+  }
+
+  &-leave-active {
+    animation: queens-slide-left-leave @animation-duration-base both
+      @animation-timing-function-leave;
+  }
+}
+
+.queens-slide-right {
+  &-enter-active {
+    animation: queens-slide-right-enter @animation-duration-base both
+      @animation-timing-function-enter;
+  }
+
+  &-leave-active {
+    animation: queens-slide-right-leave @animation-duration-base both
+      @animation-timing-function-leave;
+  }
+}

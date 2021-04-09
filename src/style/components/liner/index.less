@@ -1,0 +1,16 @@
+@import '../../mixins/app.less';
+.liner-wrapper {
+    position: relative;
+    overflow: hidden;
+    .canvas{
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+    .group {
+        &-item {
+            .flex-wrap();
+            margin-bottom: 14px;
+        }
+    }
+}

@@ -1,0 +1,162 @@
+@import '../style/var';
+
+.queens-progress {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    line-height: 1;
+
+    .queens-progress__text {
+        font-size: 14px;
+        color: #606266;
+        display: inline-block;
+        vertical-align: middle;
+        margin-left: 10px;
+        line-height: 1;
+
+        i {
+            text-align: center;
+            vertical-align: middle;
+            display: block;
+        }
+    }
+
+    &.queens-progress--line {
+        .queens-progress__text {
+            width: 55px;
+            text-align: right;
+        }
+    }
+
+    &.queens-progress--circle,
+    &.queens-progress--dashboard {
+        display: inline-block;
+
+        .queens-progress__text {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            margin: 0;
+            transform: translate(0, -50%);
+
+            i {
+                vertical-align: middle;
+                display: inline-block;
+            }
+        }
+    }
+
+
+    &.queens-progress--without-text {
+        .queens-progress__text {
+            display: none;
+        }
+
+        .queens-progress-bar {
+            padding-right: 0;
+            margin-right: 0;
+            display: block;
+        }
+    }
+
+    &.queens-progress--text-inside {
+        .queens-progress-bar {
+            padding-right: 0;
+            margin-right: 0;
+        }
+    }
+
+    &.is-success {
+        .queens-progress-bar__inner {
+            background: @green;
+        }
+
+        .queens-progress__text {
+            color: @green;
+        }
+    }
+
+    &.is-warning {
+        .queens-progress-bar__inner {
+            background: @orange-dark;
+        }
+
+        .queens-progress__text {
+            color: @orange-dark;
+        }
+    }
+
+    &.is-exception {
+        .queens-progress-bar__inner {
+            background: @red;
+        }
+
+        .queens-progress__text {
+            color: @red;
+        }
+    }
+}
+
+.queens-progress-bar {
+    padding-right: 55px;
+    display: inline-block;
+    vertical-align: middle;
+    width: 100%;
+    margin-right: -65px;
+    box-sizing: border-box;
+
+    .queens-progress-bar__outer {
+        height: 6px;
+        border-radius: 100px;
+        background: @gray-3;
+        overflow: hidden;
+        position: relative;
+        vertical-align: middle;
+    }
+
+    .queens-progress-bar__inner {
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        background: repeating-linear-gradient(-45deg, #7f76fc, #7f76fc 10px, @commonColor 10px, @commonColor 20px);
+        background-size: 600px 100%;
+        animation: barberpole 12s linear infinite;
+        text-align: right;
+        border-radius: 100px;
+        line-height: 1;
+        white-space: nowrap;
+        transition: width 0.6s ease;
+    }
+
+    .queens-progress-bar__innerText {
+        display: inline-block;
+        vertical-align: middle;
+        color: @white;
+        font-size: 12px;
+        margin: 0 5px;
+    }
+}
+
+@keyframes progress {
+    0% {
+        background-position: 0 0;
+    }
+
+    100% {
+        background-position: 32px 0;
+    }
+}
+
+@keyframes barberpole {
+    from {
+        background-position: 0% 0%;
+    }
+
+    to {
+        background-position: 600px 0%;
+    }
+}
